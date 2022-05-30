@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property resource="application.properties" />
+
+	<appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="SPLUNK_APPENDER" class="ch.qos.logback.core.FileAppender" >
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+		<append>true</append>
+		<file>${logging.activation_splunk}</file>
+	</appender>
+
+
+	<logger name="splunk" level="INFO" additivity="false" >
+	
+		<appender-ref ref="SPLUNK_APPENDER" />
+	</logger>
+	
+
+	<root level="DEBUG">
+		<appender-ref ref="CONSOLE_APPENDER" />
+	</root>
+
+</configuration>

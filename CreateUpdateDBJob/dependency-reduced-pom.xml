@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.verifone.ce</groupId>
+  <artifactId>create-update-db-job</artifactId>
+  <name>create-update-db-job</name>
+  <version>1.0.0</version>
+  <description>Create or Update DB</description>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <finalName>${project.artifactId}-${project.version}</finalName>
+          <transformers>
+            <transformer>
+              <mainClass>com.verifone.ce.batch.MainApplication</mainClass>
+              <manifestEntries>
+                <Build-Number>${majorVersion}.${minorVersion}.${buildNumber}</Build-Number>
+                <Build-Time>${maven.build.timestamp}</Build-Time>
+              </manifestEntries>
+            </transformer>
+          </transformers>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <properties>
+    <majorVersion>1</majorVersion>
+    <maven.test.skip>true</maven.test.skip>
+    <buildNumber>${project.ver}</buildNumber>
+    <java.version>1.7</java.version>
+    <minorVersion>1</minorVersion>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+</project>
+
