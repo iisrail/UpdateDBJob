@@ -1,0 +1,1 @@
+INSERT INTO system_parameters (guid, name, value, data_type, optional_values, created_by, created_time, updated_by, updated_time) VALUES (UNHEX(REPLACE(UUID(),'-','')), 'OCSPMasterHost', 'http://ejbca.svccg.verifone.internal:8080/ejbca/publicweb/status/ocsp', 'string', NULL, 'admin@verifone.com', NOW(), 'admin@verifone.com', NOW());
