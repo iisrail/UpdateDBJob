@@ -1,4 +1,4 @@
-# CareateUpdateDBJob
+# UpdateDBJob
 Manage Source Version Control for Your Database such as 'Flyway DB'
 
 The project enable to run sql scripts to create or update database. 
