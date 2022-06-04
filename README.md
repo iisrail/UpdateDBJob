@@ -1,7 +1,7 @@
 # UpdateDBJob
 Manage Source Version Control for Your Database such as 'Flyway DB'
 
-The Goal of the Job
+**The Goal of the Job**
 The job has 3 main goals 
 
 Automatic update of the last scripts in the development environment 
@@ -86,8 +86,8 @@ DROP PROCEDURE IF EXISTS swapConfigDataToProcessing;
 
 
 As far as you see I use letters a,b,c in the names of the scripts in order to arrange a strict order of calling the scripts, first of all we drop procedure, then we create procedure and finally we call the procedure.
------------------------------------------------------------------------------------------------------------------------------
 
+**Configuration on Jenkins**
 
 The project enable to run sql scripts to create or update database. 
 The purpose access the zip file which packages all needed sql scripts 
